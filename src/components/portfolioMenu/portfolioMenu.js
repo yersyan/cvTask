@@ -1,19 +1,13 @@
-import React, {useState} from "react";
+import React, {useContext} from "react";
 import "./portfolioMenu.css"
+import {portfolioMenuContext} from "../../state/state";
 
-export const PortfolioMenu = () => {
-    const [portfolioMenu] = useState([
-        {title: "All"},
-        {title: "Detailed"},
-        {title: "Mockups"},
-        {title: "SoundCloud"},
-        {title: "Vimeo Videos"},
-        {title: "YouTube Videos"},
-    ])
+export const PortfolioMenu = ({showItems}) => {
+    const portfolioMenu = useContext(portfolioMenuContext)
 
     return <ul className="portfolio-filters">
         {portfolioMenu.map(p => {
-            return <li>
+            return <li onClick={() => showItems(p.title)}>
                 <a className="filter btn btn-sm btn-link">{p.title}</a>
             </li>
         })}

@@ -1,38 +1,26 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext} from "react";
 import {GridRow} from "./components";
+import {profileContext} from "../state/state";
+import cn from "classnames"
+
 
 export const Home = ({animClass}) => {
+    const profile = useContext(profileContext)
 
-    const [anim, setAnim] = useState("")
-
-    useEffect(() => {
-        return () => {
-            setAnim("animated-section-rotateSlideOut")
-        }
-    }, [anim])
-
-
-  return <section data-id="home" className={`animated-section start-page ${animClass} ${anim}`}>
-
-      <div className="section-content vcentered">
-
-          <GridRow>
-
-                  <div className="title-block">
-                      <h2>Alex Smith</h2>
-                      <div className="owl-carousel text-rotation">
-                          <div className="item">
-                              <div className="sp-subtitle">Web Designer</div>
-                          </div>
-
-                          <div className="item">
-                              <div className="sp-subtitle">Frontend-developer</div>
-                          </div>
-                      </div>
-                  </div>
-
-          </GridRow>
-
-      </div>
-  </section>
+    return <section data-id="home" className={cn(`animated-section start-page ${animClass}`)}>
+        <div className="section-content vcentered">
+            <GridRow>
+                <div className="title-block">
+                    <h2>{profile.fullName}</h2>
+                    <div className="owl-carousel text-rotation itemsBlock">
+                        {profile.specialty.map((s, index) => {
+                            return <div className={cn("item", `item${index + 1}`)} key={s.title}>
+                                <div className="sp-subtitle">{s.title}</div>
+                            </div>
+                        })}
+                    </div>
+                </div>
+            </GridRow>
+        </div>
+    </section>
 }

@@ -16,7 +16,7 @@ export const BlogCard = ({description, img, date, title}) => {
             </div>
             <div className="post-info">
                 <div className="post-date">{date}</div>
-                <a href="blog-post-1.html">
+                <a href="/#">
                     <h4 className="blog-item-title">{title}</h4>
                 </a>
             </div>

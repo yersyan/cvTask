@@ -1,29 +1,37 @@
-import React, {useContext, useState} from "react";
-import {NavLink} from "react-router-dom";
-import {animationsContext} from "../state/state";
+import React, {useContext, useEffect, useState} from "react";
+import {NavLink, useHistory} from "react-router-dom";
+import {animationsContext, menuContext} from "../state/state";
+import {useMediaQuery} from "react-responsive";
 
-let menu = [
-    {id: 1, title: "Home", path: "/home", icon: "lnr-home"},
-    {id: 2, title: "About", path: "/about", icon: "lnr-user"},
-    {id: 3, title: "Resume", path: "/resume", icon: "lnr-graduation-hat"},
-    {id: 4, title: "Portfolio", path: "/portfolio", icon: "lnr-briefcase"},
-    {id: 5, title: "Blog", path: "/blog", icon: "lnr-book"},
-    {id: 6, title: "Contact", path: "/contact", icon: "lnr-envelope"},
-]
 
-export const Menu = ({setAnimation}) => {
+export const Menu = ({setAnimation, open, page, setPage}) => {
+    const menu = useContext(menuContext);
     const animations = useContext(animationsContext);
+    const isDesktop = useMediaQuery({query: '(min-width: 1024px)'})
 
-    const animation = () => {
+
+    const animation = (id) => {
+        for (let item of menu) {
+            if (id === item.id) {
+                item.active = true
+            } else {
+                item.active = false
+            }
+        }
         let random = parseInt(Math.floor(Math.random() * 67));
-        setAnimation(animations[random])
+        setAnimation(animations[random]);
+        !isDesktop && open(false)
+        setPage(id)
+        if (id === menu.length){
+            setPage(0)
+        }
     }
 
     return <ul className="main-menu">
         {menu.map(m => {
             return <li>
                 <NavLink to={m.path} className="nav-anim" activeClassName="active"
-                         onClick={() => animation()} >
+                         onClick={() => animation(m.id)}>
                     <span className={`menu-icon lnr ${m.icon}`}/>
                     <span className="link-text">{m.title}</span>
                 </NavLink>
@@ -33,19 +41,53 @@ export const Menu = ({setAnimation}) => {
     </ul>
 }
 
-export const ArrowNav = () => {
-    const menu = ["/home", "/about"];
-    const [to, setTo] = useState(menu[0]);
-    const changePage = () => {
-        setTo(menu[1])
+export const ArrowNav = ({setAnimation, page, setPage}) => {
+    const animations = useContext(animationsContext);
+    const menu = useContext(menuContext)
+    const history = useHistory()
+
+    const forward = () => {
+        menu.forEach(function (item, index) {
+
+            if (menu[page] !== undefined) {
+                history.push(menu[page].path)
+                if (page === menu.length - 1) {
+                    setPage(0)
+                } else {
+                    setPage(page + 1)
+                }
+            }
+        })
+        let random = parseInt(Math.floor(Math.random() * 67));
+        setAnimation(animations[random]);
+    }
+
+
+    const back = () => {
+        menu.forEach(function (item,index) {
+            if(item.active){
+                if(menu[page] !== undefined){
+                    history.push(menu[page].path)
+
+                    if (page === 0){
+                        setPage(menu.length - 1)
+                    }else{
+                        setPage(page - 1)
+                    }
+                }
+            }
+        })
+        let random = parseInt(Math.floor(Math.random() * 67));
+        setAnimation(animations[random]);
     }
 
     return <div className="lmpixels-arrows-nav">
-        <NavLink to={to} onClick={changePage}>
-            <div className="lmpixels-arrow-right"><i className="lnr lnr-chevron-right"/></div>
-        </NavLink>
-        <NavLink to="/resume">
-            <div className="lmpixels-arrow-left"><i className="lnr lnr-chevron-left"/></div>
-        </NavLink>
+        <div className="lmpixels-arrow-right" onClick={forward}>
+            <i className="lnr lnr-chevron-right"/>
+        </div>
+
+        <div className="lmpixels-arrow-left" onClick={back}>
+            <i className="lnr lnr-chevron-left"/>
+        </div>
     </div>
 }

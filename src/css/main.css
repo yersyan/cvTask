@@ -207,8 +207,6 @@ input[type="submit"]:focus {
   animation-fill-mode: both;
 }
 
-
-
 /* ============================================================================= 
 3. Page loadig animation
 ============================================================================= */
@@ -2246,8 +2244,11 @@ blockquote {
 @media only screen and (max-width: 1280px) {
  .page {
     padding-left: 30px;
+    overflow: visible;
  }
-
+.page-content{
+  position: static;
+}
  .header {
     max-width: 330px;
   }
@@ -2328,15 +2329,15 @@ blockquote {
   }
 
   .mobile-menu-hide {
-    width: 0;
+    width: 330px;
     right: 0;
-    margin-right: -100%;
+    /*margin-right: -100%;*/
     overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+    /*opacity: 0;*/
+    /*visibility: hidden;*/
+    /*-webkit-box-shadow: none;*/
+    /*-moz-box-shadow: none;*/
+    /*box-shadow: none;*/
   }
 
   ul.main-menu {
@@ -2725,6 +2726,7 @@ blockquote {
 ============================================================================= */
 
 /* v1.1 */
+
 .lm-animated-bg {
   position: absolute;
   width: auto;
@@ -2909,3 +2911,43 @@ blockquote {
   }
 }
 
+.itemsBlock{
+  position:  relative;
+}
+.item1, .item2 {
+  position: absolute;
+  width: 20rem;
+  left: calc(50% - 10rem);
+}
+.item1{
+  animation: item1 5s linear infinite alternate;
+  transform: scale(1);
+}
+@keyframes item1 {
+  75%{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(0);
+  }
+}
+.item2{
+  animation: item2 5s linear infinite alternate;
+  transform: scale(0);
+}
+@keyframes item2 {
+  75% {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+
+
+@media only screen and (max-width: 1025px) {
+  .content-area {
+    width: 100%;
+  }
+}

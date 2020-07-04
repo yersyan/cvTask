@@ -5,7 +5,12 @@
     overflow: hidden !important;
     -ms-overflow-style: none
 }
-
+.psa{
+    overflow: hidden;
+}
+.psa:hover{
+    overflow-y: scroll;
+}
 @supports (-ms-overflow-style: none) {
     .ps {
         overflow: auto !important

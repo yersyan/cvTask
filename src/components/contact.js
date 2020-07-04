@@ -1,13 +1,16 @@
 import React from "react";
-import {GridRow, PageTitle} from "./components";
+import {BlockTitle, GridRow, PageTitle} from "./components";
+import {useMediaQuery} from "react-responsive";
 
 export const Contact = ({animClass}) => {
+    const isSmMobile = useMediaQuery({ query: '(max-width: 575px)' })
+
     return <section data-id="contact" className={`animated-section ${animClass}`}>
         <PageTitle title={"Contact"}/>
 
         <div className="section-content">
 
-            <GridRow gridTemplateColumns={"1fr 2fr"} gridColumnGap={"5%"}>
+            <GridRow gridTemplateColumns={isSmMobile ? "100%" : "1fr 2fr"} gridColumnGap={"5%"}>
 
                 <div className="col-xs-12 col-sm-4">
                     <div className="lm-info-block gray-default">
@@ -46,9 +49,7 @@ export const Contact = ({animClass}) => {
 
                 <div className="col-xs-12 col-sm-8">
                     <div id="map" className="map"></div>
-                    <div className="block-title">
-                        <h3>How Can I <span>Help You?</span></h3>
-                    </div>
+                    <BlockTitle title={"How Can I"} span={"Help You?"}/>
 
                     <form id="contact_form" className="contact-form"
                           action="https://lmpixels.com/demo/breezycv/dark/1/contact_form/contact_form.php"

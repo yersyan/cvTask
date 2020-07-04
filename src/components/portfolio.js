@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import {GridRow, PageTitle} from "./components";
 import {PortfolioMenu} from "./portfolioMenu/portfolioMenu";
 import {Figures} from "./figures/figures";
 
 export const Portfolio = ({animClass}) => {
+    const [title, showItems] = useState("All")
+
     return <section data-id="portfolio"
                     className={`animated-section ${animClass}`}>
        <PageTitle title={"Portfolio"}/>
@@ -15,9 +17,9 @@ export const Portfolio = ({animClass}) => {
 
                     <div className="portfolio-content">
 
-                        <PortfolioMenu/>
+                        <PortfolioMenu showItems={showItems}/>
 
-                        <Figures/>
+                        <Figures title={title}/>
                     </div>
 
                 </div>
