@@ -8,8 +8,7 @@ export const Menu = ({setAnimation, open, page, setPage}) => {
     const menu = useContext(menuContext);
     const animations = useContext(animationsContext);
     const isDesktop = useMediaQuery({query: '(min-width: 1024px)'})
-
-
+    
     const animation = (id) => {
         for (let item of menu) {
             if (id === item.id) {
@@ -27,6 +26,8 @@ export const Menu = ({setAnimation, open, page, setPage}) => {
         }
     }
 
+    
+    
     return <ul className="main-menu">
         {menu.map(m => {
             return <li>

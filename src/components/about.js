@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useCallback, useContext, useState} from "react";
 import {BlockTitle, GridRow, PageTitle, WhiteSpace} from "./components";
 import {Clients} from "./clients/clients";
 import {Testimonials} from "./testimonials/testimonials";
@@ -8,10 +8,21 @@ import {InfoList} from "./infoList";
 import {InfoListWIcon} from "./infoListWIcon/infoListWIcon";
 import "../css/perfect-scrollbar.css"
 
+
 export const About = ({animClass}) => {
     const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
+    const [hovering, setHovering] = useState(false);
+    const handleMouseOver = useCallback(() => {
+        !hovering && setHovering(true);
+    }, [hovering]);
 
-    return <section data-id="about-me" className={`animated-section ${animClass}`}>
+    const handleMouseOut = useCallback(() => {
+        !!hovering && setHovering(false);
+    }, [hovering]);
+
+
+    return <section data-id="about-me" className={`animated-section ${animClass}`} onMouseOver={handleMouseOver}
+                    onMouseOut={handleMouseOut}>
         <PageTitle title={"About"} span={"Me"}/>
 
         <div className="section-content">
@@ -82,7 +93,5 @@ export const About = ({animClass}) => {
             <WhiteSpace size={"50px"}/>
             <FunFacts/>
         </div>
-
-
     </section>
 }

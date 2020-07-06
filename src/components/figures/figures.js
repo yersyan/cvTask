@@ -12,11 +12,11 @@ export const Figures = ({title}) => {
         {
             portfolioItems.map(p => {
                 if(title === "All"){
-                    return <PortfolioItem img={p.img} address={p.address} icon={p.icon} name={p.name}
+                    return <PortfolioItem img={p.img} source={p.source} icon={p.icon} name={p.name}
                                           category={p.category}/>
                 }
                 if (p.category === title) {
-                    return <PortfolioItem img={p.img} address={p.address} icon={p.icon} name={p.name}
+                    return <PortfolioItem img={p.img} source={p.source} icon={p.icon} name={p.name}
                                           category={p.category}/>
                 }
             })

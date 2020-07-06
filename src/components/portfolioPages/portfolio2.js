@@ -1,35 +1,75 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
+import img1 from "../../img/portfolio/full/1.jpg"
+import img2 from "../../img/portfolio/full/2.jpg"
+import img3 from "../../img/portfolio/full/3.jpg"
+import {BlockTitle, GridRow, PageTitle} from "../components";
+import cn from "classnames"
+import {NavLink} from "react-router-dom";
+import {profileContext} from "../../state/state";
 
 export const PortfolioTwo = () => {
-    return <div id="ajax-page" className="ajax-page-content">
+    const profile = useContext(profileContext)
+
+    const [images] = useState([
+        {id: 1, img: img1, active: true},
+        {id: 2, img: img2, active: false},
+        {id: 3, img: img3, active: false}
+    ])
+
+    const [isActive, changeStatus] = useState( 1 );
+
+
+    const prevImg = () => {
+        (isActive > 1) && changeStatus(isActive => isActive - 1)
+        isActive === 1 && changeStatus(isActive => images.length)
+    }
+    const nextImg = () => {
+        (isActive < images.length) && changeStatus(isActive => isActive + 1)
+        isActive === images.length && changeStatus(1)
+    }
+
+
+    const dotClick = (id) => {
+        for (let item of images){
+            if (id === item.id){
+                changeStatus(id)
+            }
+        }
+    }
+
+
+    return <div id="ajax-page" className={cn("ajax-page-content", "animated-section-moveFromLeft")}>
         <div className="ajax-page-wrapper">
             <div className="ajax-page-nav">
                 <div className="nav-item ajax-page-prev-next">
-                    <a className="ajax-page-load" href="portfolio-1.html"><i className="lnr lnr-chevron-left"></i></a>
-                    <a className="ajax-page-load" href="portfolio-3.html"><i className="lnr lnr-chevron-right"></i></a>
+                    <NavLink className="ajax-page-load" to="/portfolio/portfolio-1" ><i className="lnr lnr-chevron-left"/></NavLink>
+                    <NavLink className="ajax-page-load" to="/portfolio/portfolio-1" ><i className="lnr lnr-chevron-right"/></NavLink>
+                    <NavLink to="/portfolio" className="ajax-page-load"><i className="lnr lnr-cross"/></NavLink>
                 </div>
-                <div className="nav-item ajax-page-close-button">
-                    <a id="ajax-page-close-button" href="#"><i className="lnr lnr-cross"></i></a>
-                </div>
+
+
             </div>
 
-            <div className="ajax-page-title">
-                <h1>Portfolio Project 2</h1>
-            </div>
+            <PageTitle title={"Portfolio Project 2"}/>
 
-            <div className="row">
+            <GridRow gridTemplateColumns={"2fr 1fr"}>
                 <div className="col-sm-8 col-md-8 portfolio-block">
-                    <div className="owl-carousel portfolio-page-carousel">
-                        <div className="item">
-                            <img src="img/portfolio/full/1.jpg" alt=""/>
-                        </div>
-                        <div className="item">
-                            <img src="img/portfolio/full/2.jpg" alt=""/>
-                        </div>
-                        <div className="item">
-                            <img src="img/portfolio/full/3.jpg" alt=""/>
-                        </div>
-                    </div>
+                    <GridRow sc={"owl-carousel"} tc={"portfolio-page-carousel"} gridTemplateColumns={"100%"}>
+                        {images.length > 1 && <div className="owl-nav">
+                            <div className="owl-prev" onClick={prevImg}/>
+                            <div className="owl-next" onClick={nextImg}/>
+                        </div>}
+                        {images.length > 1 && <div className="owl-dots">
+                            {images.map(i => {
+                                return <div className={cn("owl-dot", i.active && "active")} onClick={() => dotClick(i.id)}><span/></div>
+                            })}
+                        </div>}
+                        {images.map((i, index) => {
+                            return (index >= (isActive - 1) && index < isActive) && <div className="item">
+                                <img src={i.img} alt=""/>
+                            </div>
+                        })}
+                    </GridRow>
 
                     <div className="portfolio-page-video embed-responsive embed-responsive-16by9">
                         <iframe className="embed-responsive-item"
@@ -42,14 +82,12 @@ export const PortfolioTwo = () => {
                 <div className="col-sm-4 col-md-4 portfolio-block">
 
                     <div className="project-description">
-                        <div className="block-title">
-                            <h3>Description</h3>
-                        </div>
+                        <BlockTitle title={"Description"}/>
                         <ul className="project-general-info">
-                            <li><p><i className="fa fa-user"></i> Alex Smith</p></li>
-                            <li><p><i className="fa fa-globe"></i> <a href="#" target="_blank">www.project-site.com</a>
+                            <li><p><i className="fa fa-user"/>{profile.fullName}</p></li>
+                            <li><p><i className="fa fa-globe"/> <a href="#" target="_blank">www.project-site.com</a>
                             </p></li>
-                            <li><p><i className="fa fa-calendar"></i> 25 december, 2016</p></li>
+                            <li><p><i className="fa fa-calendar"/> 25 december, 2016</p></li>
                         </ul>
 
                         <p className="text-justify">Aliquam euismod aliquam massa, quis eleifend dui sodales vitae.
@@ -72,15 +110,15 @@ export const PortfolioTwo = () => {
                             <div className="block-title">
                                 <h3>Share</h3>
                             </div>
-                            <a href="#" target="_blank" className="btn"><i className="fab fa-facebook-f"></i> </a>
-                            <a href="#" target="_blank" className="btn"><i className="fab fa-twitter"></i> </a>
-                            <a href="#" target="_blank" className="btn"><i className="fab fa-dribbble"></i> </a>
+                            <a href="#" target="_blank" className="btn"><i className="fab fa-facebook-f"/> </a>
+                            <a href="#" target="_blank" className="btn"><i className="fab fa-twitter"/> </a>
+                            <a href="#" target="_blank" className="btn"><i className="fab fa-dribbble"/> </a>
                         </div>
 
                     </div>
 
                 </div>
-            </div>
+            </GridRow>
         </div>
     </div>
 }

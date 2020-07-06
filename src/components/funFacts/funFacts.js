@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {FunFact} from "./funFact";
-import {BlockTitle, GridRow} from "../components";
+import {BlockTitle, GridRow, WhiteSpace} from "../components";
 import {useMediaQuery} from "react-responsive";
 import {factsContext, factsDataContext} from "../../state/state";
 
@@ -17,7 +17,6 @@ export const FunFacts = () => {
             {facts.map(f => {
                 return <FunFact img={f.img} title={f.title} quantity={f.quantity}/>
             })}
-
         </GridRow>
     </div>
 }

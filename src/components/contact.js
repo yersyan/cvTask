@@ -15,14 +15,14 @@ export const Contact = ({animClass}) => {
                 <div className="col-xs-12 col-sm-4">
                     <div className="lm-info-block gray-default">
                         <i className="lnr lnr-map-marker"></i>
-                        <h4>San Francisco</h4>
+                        <h4>Yerevan</h4>
                         <span className="lm-info-block-value"></span>
                         <span className="lm-info-block-text"></span>
                     </div>
 
                     <div className="lm-info-block gray-default">
                         <i className="lnr lnr-phone-handset"></i>
-                        <h4>415-832-2000</h4>
+                        <h4>(+374) 55-94-80-88</h4>
                         <span className="lm-info-block-value"></span>
                         <span className="lm-info-block-text"></span>
                     </div>
@@ -31,7 +31,7 @@ export const Contact = ({animClass}) => {
                         <i className="lnr lnr-envelope"></i>
                         <h4><a href="https://lmpixels.com/cdn-cgi/l/email-protection"
                                className="__cf_email__"
-                               data-cfemail="51303d3429113429303c213d347f323e3c">[email&#160;protected]</a>
+                               data-cfemail="51303d3429113429303c213d347f323e3c">ahovakimyan@beeoncode.com</a>
                         </h4>
                         <span className="lm-info-block-value"></span>
                         <span className="lm-info-block-text"></span>

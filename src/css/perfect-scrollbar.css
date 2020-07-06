@@ -5,12 +5,7 @@
     overflow: hidden !important;
     -ms-overflow-style: none
 }
-.psa{
-    overflow: hidden;
-}
-.psa:hover{
-    overflow-y: scroll;
-}
+
 @supports (-ms-overflow-style: none) {
     .ps {
         overflow: auto !important
@@ -152,4 +147,48 @@
 
 .ps:hover > .ps__scrollbar-y-rail:hover > .ps__scrollbar-y {
     background-color: #999
+}
+
+
+/*.content-area {*/
+/*    scrollbar-width: none;*/
+/*    -ms-overflow-style: none;*/
+/*}*/
+
+/*.content-area::-webkit-scrollbar {*/
+/*    display: none;*/
+/*}*/
+::-webkit-scrollbar{
+    width: 31px;
+    right: 0;
+    top: 0;
+    position: absolute;
+    border-radius: 30px;
+    bottom: 0px;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 7px;
+    height: 20px;
+    margin-left: 1px;
+    position: absolute;
+    border-radius: 7px;
+    opacity: 1;
+    top: 0;
+    left: 3px;
+    background-color: #7B7B7C;
+    border: 12px solid #222
+}
+.animated-section:hover ::-webkit-scrollbar-thumb{
+    background-color: #07A5CD;
+}
+
+::-webkit-scrollbar:hover, ::-webkit-scrollbar:active{
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active{
+    background-color: #07A5CD;
+    /*border: 9px solid #414141;*/
 }

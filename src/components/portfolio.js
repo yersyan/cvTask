@@ -6,6 +6,7 @@ import {Figures} from "./figures/figures";
 export const Portfolio = ({animClass}) => {
     const [title, showItems] = useState("All")
 
+
     return <section data-id="portfolio"
                     className={`animated-section ${animClass}`}>
        <PageTitle title={"Portfolio"}/>
@@ -17,7 +18,7 @@ export const Portfolio = ({animClass}) => {
 
                     <div className="portfolio-content">
 
-                        <PortfolioMenu showItems={showItems}/>
+                        <PortfolioMenu showItems={showItems} title={title}/>
 
                         <Figures title={title}/>
                     </div>

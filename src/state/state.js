@@ -17,7 +17,7 @@ import img3 from "../img/portfolio/3.jpg";
 import img4 from "../img/portfolio/4.jpg";
 import img5 from "../img/portfolio/5.jpg";
 import img6 from "../img/portfolio/6.jpg";
-import profileImage from "../img/main_photo.jpg";
+import profileImage from "../img/Art.jpg";
 
 let initialState = {
     menu: [
@@ -30,9 +30,9 @@ let initialState = {
     ],
     profile: {
         img: profileImage,
-        fullName: "Alex Smith",
+        fullName: "Artak Hovakimyan",
         specialty: [
-            {title: "Web Designer", status: "main"},
+            {title: "Senior Developer Engineer", status: "main"},
             {title: "Frontend-developer", status: ""},
         ]
     },
@@ -47,13 +47,13 @@ let initialState = {
       text: "All rights reserved."
     },
     infoData: {
-        infoText: `Proin volutpat mauris ac pellentesque pharetra. Suspendisse congue elit vel odio suscipit, sit amet tempor nisl imperdiet. Quisque ex justo, faucibus ut mi in, condimentum finibus dolor. Aliquam vitae hendrerit dolor, eget imperdiet mauris. Maecenas et ante id ipsum condimentum dictum et vel massa. Ut in imperdiet dolor, vel consectetur dui.`,
+        infoText: `I have skills and knowledge for working on all key areas of an organization and managed my time on trying myself also on development (coding) area. Team Lead / Senior developer engineer and architect with more than 5 years of development experience. Proficient in: JavaScript, Backbone, Marionette, HTML / XHTML, HTML5, CSS CSS3, PHP, Mysql, MongoDB application development, Zend Framework based application development, Wordpress custom plugin development, Magento theme development, Magento extension development, jQuery custom plugin development.`,
         infoList: [
-            {title: "Age", value: `${new Date().getFullYear() - 1988}`},
-            {title: "Residence", value: "USA"},
-            {title: "Address", value: "88 Some Street, Some Town"},
-            {title: "e-mail", value: "email@example.com"},
-            {title: "Phone", value: "+0123 123 456 789"},
+            {title: "Age", value: `${new Date().getFullYear() - 1983}`},
+            {title: "Residence", value: "Armenia"},
+            {title: "Address", value: "Republic of Armenia, 0033, Yerevan, H. Emin 6, apt. 12"},
+            {title: "eMail", value: "ahovakimyan@beeoncode.com"},
+            {title: "Phone", value: `(+374) 77-94-88-88`},
         ],
         infoListWIconData: {
             title: {mainTitle: "What", spanTitle: "I Do"},
@@ -118,18 +118,22 @@ let initialState = {
             title: {mainTitle: "Education", spanTitle: ""},
             array: [
                 {
-                    period: 2008,
-                    company: "University of Studies",
-                    title: "Frontend Development",
-                    text: `Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales.
-                    Phasellus sed mauris hendrerit, laoreet sem in, lobortis ante.`
+                    period: "2007-2009",
+                    company: "Yerevan State University",
+                    title: "Master's Degree",
+                    text: `Faculty of Mathematics`
                 },
                 {
-                    period: 2007,
-                    company: "University of Studies",
-                    title: "Graphic Design",
-                    text: `Aliquam tincidunt malesuada tortor vitae iaculis. In eu turpis iaculis, feugiat risus
-            quis, aliquet urna. Quisque fringilla mollis risus, eu pulvinar dolor.`
+                    period: "2001-2006",
+                    company: "Yerevan State University",
+                    title: "Bachelor's Degree higher special",
+                    text: `Faculty of Mathematics`
+                },
+                {
+                    period: "1990-2000",
+                    company: "Yerevan, Armenia 145th Secondary School",
+                    title: "Secondary Education and Teaching",
+                    text: ``
                 },
             ]
         },
@@ -137,22 +141,34 @@ let initialState = {
             title: {mainTitle: "Experience", spanTitle: ""},
             array: [
                 {
-                    period: "2016 - Current",
-                    company: "Google",
-                    title: "Lead Ui/Ux Designer",
-                    text: `Praesent dignissim sollicitudin justo, sed elementum quam lacinia quis. Phasellus eleifend tristique posuere. Sed vitae dui nec magna.`
+                    period: "2015 - Till Now",
+                    company: "BeeOnCode",
+                    title: "CO-Founder ",
+                    text: `www.beeoncode.com`
                 },
                 {
-                    period: "2013 - 2016",
-                    company: "Adobe",
-                    title: "Senior Ui/Ux Designer",
-                    text: `Maecenas tempus faucibus rutrum. Duis eu aliquam urna. Proin vitae nulla tristique, ornare felis id, congue libero. Nam volutpat euismod quam.`
+                    period: "2014 - Till Now",
+                    company: "Plexidoft Software",
+                    title: "E-Commerce Developer Engineer",
+                    text: `PHP Yii Framework, MySql, JavaScript, Jquery, mongoDb .`
                 },
                 {
-                    period: "2011 - 2013",
-                    company: "Google",
-                    title: "Junior Ui/Ux Designer",
-                    text: `Duis mollis nunc quis quam viverra venenatis. Nulla nulla arcu, congue vitae nunc ac, sodales ultricies diam. Nullam justo leo, tincidunt sit amet.`
+                    period: "2013 - 2014",
+                    company: "NOVEMBIT CJSC",
+                    title: "Senior Backend Developer Engineer",
+                    text: `“matea.com” is a web multi-Vendor Shop. This Shop is built on responsive layout for all screen resolutions. It gives opportunity to show and manage products of different Vendors. There are 2 payment methods, Ogone and PayPal. Used technologies and languages: PHP MVC, MySql, JavaScript, Jquery,(Ogone payment API, PayPal API) “LaPoste” is a web site where users give questions and the specialist gives the answers . There is a chance to approve or decline questions. Used technologies and languages: PHP Yii Framework, MySql, JavaScript, Jquery .`
+                },
+                {
+                    period: "2011 - 2012",
+                    company: "AlphaSoft",
+                    title: "Senior Developer Engineer",
+                    text: `“Supporter” (supportus.com.au) Web application based on Zend Framework . It scraps information about different products and corporations from API’s or HTML.(Used APIs CommissionMonster, CommissionFactory, DGM ... etc.) Used technologies and languages: Zend Framework, PHP, MySql, Dojo Toolkit “MyTravelMap” is a travel agency portal, where users can book tours, hotels and air tickets and integrated mutiple API’s. Used technologies and languages: Web Services, PHP, MySql Database migrations from one platform to another ones. Fixed bugs and added new features for already developed web sites and applications such as Magento, Backbone/Marionette, Zend Framework, YII Framework, Wordpress, Joomla, etc.. “thdental.am” is a dental labaratory, where users can get information about their products Used technologies and languages: PHP, WordPress, MySql`
+                },
+                {
+                    period: "2009 - Till Now",
+                    company: "Freelance",
+                    title: "Freelancer",
+                    text: `“matea.com” is a web multi-Vendor Shop. This Shop is built on responsive layout for all screen resolutions. It gives opportunity to show and manage products of different Vendors. There are 2 payment methods, Ogone and PayPal. Used technologies and languages: PHP MVC, MySql, JavaScript, Jquery,(Ogone payment API, PayPal API) “LaPoste” is a web site where users give questions and the specialist gives the answers . There is a chance to approve or decline questions. Used technologies and languages: PHP Yii Framework, MySql, JavaScript, Jquery .`
                 },
             ]
         }
@@ -213,52 +229,72 @@ let initialState = {
             icon: "fa-volume-up",
             name: "SoundCloud Audio",
             category: "SoundCloud",
-            address: <a
-                href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
-                className="lightbox mfp-iframe"
-                title="SoundCloud Audio"/>
+            source: {
+                address: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true",
+                cn: "lightbox mfp-iframe",
+                title: "SoundCloud Audio",
+                target: "_blank"
+            }
         },
         {
             img: img2,
             icon: "fa-file-alt",
             name: "SoundCloud Audio",
             category: "Detailed",
-            address: <a href="portfolio-1.html"
-                        className="ajax-page-load"/>
+            source: {
+                address: "/portfolio/portfolio-1",
+                cn: "ajax-page-load",
+                title: "",
+                target: "_blank"
+            }
         },
         {
             img: img3,
             icon: "fa-video",
             name: "SoundCloud Audio",
             category: "Vimeo Videos",
-            address: <a href="https://player.vimeo.com/video/158284739"
-                        className="lightbox mfp-iframe"
-                        title="Vimeo Video 1"/>
+            source: {
+                address: "https://player.vimeo.com/video/158284739",
+                cn: "lightbox mfp-iframe",
+                title: "Vimeo Video 1",
+                target: "_blank"
+            }
         },
         {
             img: img4,
             icon: "fa-file-alt",
             name: "SoundCloud Audio",
             category: "Detailed",
-            address: <a href="portfolio-1.html"
-                        className="ajax-page-load"/>
+            source: {
+                address: "/portfolio/portfolio-2",
+                cn: "ajax-page-load",
+                title: "",
+                target: "_blank"
+            }
         },
         {
             img: img5,
             icon: "fa-image",
             name: "SoundCloud Audio",
             category: "Mockups",
-            address: <a className="lightbox" title="Mockup Design 1"
-                        href="img/portfolio/full/5.jpg"/>
+            source: {
+                address: "img/portfolio/full/5.jpg",
+                cn: "lightbox",
+                title: "Mockup Design 1",
+                target: "_blank"
+            }
         },
         {
             img: img6,
             icon: "fa-video",
             name: "SoundCloud Audio",
             category: "YouTube Videos",
-            address: <a href="https://www.youtube.com/embed/bg0gv2YpIok"
-                        className="lightbox mfp-iframe"
-                        title="YouTube Video 1"/>
+            source: {
+                address: "https://www.youtube.com/embed/bg0gv2YpIok",
+                cn: "lightbox mfp-iframe",
+                title: "YouTube Video 1",
+                target: "_blank"
+            }
         },
     ],
     blogCards: [
