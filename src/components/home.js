@@ -2,12 +2,13 @@ import React, {useContext} from "react";
 import {GridRow} from "./components";
 import {profileContext} from "../state/state";
 import cn from "classnames"
+import {Section} from "./section";
 
 
 export const Home = ({animClass}) => {
     const profile = useContext(profileContext)
 
-    return <section data-id="home" className={cn(`animated-section start-page ${animClass}`)}>
+    return <Section animClass={animClass}>
         <div className="section-content vcentered">
             <GridRow>
                 <div className="title-block">
@@ -22,5 +23,5 @@ export const Home = ({animClass}) => {
                 </div>
             </GridRow>
         </div>
-    </section>
+    </Section>
 }

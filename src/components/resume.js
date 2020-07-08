@@ -12,14 +12,14 @@ import {
     experienceDataContext,
     timelineDataContext
 } from "../state/state";
+import {Section} from "./section";
 
 export const Resume = ({animClass}) => {
     const designData = useContext(designDataContext);
     const codingData = useContext(codingDataContext);
     const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
 
-    return <section data-id="resume"
-                    className={`animated-section ${animClass}`}>
+    return <Section animClass={animClass} hoverClass={"animatedHoverSection"}>
         <PageTitle title={"Resume"}/>
 
         <div className="section-content">
@@ -35,5 +35,5 @@ export const Resume = ({animClass}) => {
             <WhiteSpace size={"50px"}/>
             <Certificates/>
         </div>
-    </section>
+    </Section>
 }

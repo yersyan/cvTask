@@ -534,7 +534,7 @@ input[type="submit"]:focus {
   border-radius: 30px;
   padding: 60px;
   /*opacity: 0;*/
-  overflow: auto;
+  overflow: hidden;
   /*visibility: hidden;*/
   /*-webkit-backface-visibility: hidden;*/
   /*-moz-backface-visibility: hidden;*/
@@ -547,7 +547,15 @@ input[type="submit"]:focus {
   background-position: 50% 50%;
   background-size: cover;
 }
-
+.animatedHoverSection:hover{
+  overflow: auto;
+  padding-right: 29px;
+}
+/*.scrollBlock{*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  */
+/*}*/
 .single-page-content {
   position: absolute;
   background-color: #222;

@@ -2,13 +2,13 @@ import React, {useState} from "react";
 import {GridRow, PageTitle} from "./components";
 import {PortfolioMenu} from "./portfolioMenu/portfolioMenu";
 import {Figures} from "./figures/figures";
+import {Section} from "./section";
 
 export const Portfolio = ({animClass}) => {
     const [title, showItems] = useState("All")
 
 
-    return <section data-id="portfolio"
-                    className={`animated-section ${animClass}`}>
+    return <Section animClass={animClass} hoverClass={"animatedHoverSection"}>
        <PageTitle title={"Portfolio"}/>
 
         <div className="section-content">
@@ -18,13 +18,13 @@ export const Portfolio = ({animClass}) => {
 
                     <div className="portfolio-content">
 
-                        <PortfolioMenu showItems={showItems} title={title}/>
+                        <PortfolioMenu showItems={showItems} title={title} />
 
-                        <Figures title={title}/>
+                        <Figures title={title} />
                     </div>
 
                 </div>
             </GridRow>
         </div>
-    </section>
+    </Section>
 }

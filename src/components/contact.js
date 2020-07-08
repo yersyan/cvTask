@@ -1,12 +1,13 @@
 import React from "react";
 import {BlockTitle, GridRow, PageTitle} from "./components";
 import {useMediaQuery} from "react-responsive";
+import {Section} from "./section";
 
 export const Contact = ({animClass}) => {
     const isSmMobile = useMediaQuery({ query: '(max-width: 575px)' })
 
-    return <section data-id="contact" className={`animated-section ${animClass}`}>
-        <PageTitle title={"Contact"}/>
+    return <Section animClass={animClass} hoverClass={"animatedHoverSection"}>
+        <PageTitle title={"Contact"} />
 
         <div className="section-content">
 
@@ -116,5 +117,5 @@ export const Contact = ({animClass}) => {
             </GridRow>
 
         </div>
-    </section>
+    </Section>
 }

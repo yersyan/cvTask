@@ -13,8 +13,10 @@ import {PortfolioOne} from "./components/portfolioPages/portfolio1";
 import {Page} from "./components/page";
 import {Bg} from "./components/bg";
 import {PortfolioTwo} from "./components/portfolioPages/portfolio2";
+import {useMediaQuery} from "react-responsive";
 
 const App = () => {
+
 
     const [preloader, changePreloader] = useState(true)
 

@@ -7,6 +7,7 @@ import {useMediaQuery} from "react-responsive";
 import {InfoList} from "./infoList";
 import {InfoListWIcon} from "./infoListWIcon/infoListWIcon";
 import "../css/perfect-scrollbar.css"
+import {Section} from "./section";
 
 
 export const About = ({animClass}) => {
@@ -21,8 +22,7 @@ export const About = ({animClass}) => {
     }, [hovering]);
 
 
-    return <section data-id="about-me" className={`animated-section ${animClass}`} onMouseOver={handleMouseOver}
-                    onMouseOut={handleMouseOut}>
+    return <Section animClass={animClass} hoverClass={"animatedHoverSection"}>
         <PageTitle title={"About"} span={"Me"}/>
 
         <div className="section-content">
@@ -93,5 +93,5 @@ export const About = ({animClass}) => {
             <WhiteSpace size={"50px"}/>
             <FunFacts/>
         </div>
-    </section>
+    </Section>
 }

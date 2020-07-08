@@ -1,8 +1,10 @@
 import React, {useEffect} from "react";
 import cn from "classnames";
 import bgImage from "../img/main_bg.png";
+import {useMediaQuery} from "react-responsive";
 
 export const Bg = () => {
+    const isDesktop = useMediaQuery({query: '(min-width: 1024px)'})
     const backgroundImage = `url(${bgImage})`;
 
     useEffect(() => {

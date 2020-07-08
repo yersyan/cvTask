@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import "./portfolioMenu.css"
 import {portfolioMenuContext} from "../../state/state";
 
-export const PortfolioMenu = ({showItems, title}) => {
+export const PortfolioMenu = ({showItems, title, setTransformAnim}) => {
 
     const portfolioMenu = useContext(portfolioMenuContext)
 
